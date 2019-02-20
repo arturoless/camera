@@ -29,6 +29,10 @@
         remote.src = window.URL.createObjectURL(new Blob(binaryData, {type: "video/mp4"}));
         console.log(remote.src)
     });
+    remote.onplay = function() {
+        var stream = leftVideo.captureStream();
+        remote.srcObject = stream;
+    };
     // const constraints = window.constraints = {
     //     audio: false,
     //     video: true
